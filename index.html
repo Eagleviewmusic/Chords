@@ -105,7 +105,10 @@
       "Bb": ["C",   "D",   "Eb", "F",  "Gm",  "Dm",  "Cm",  "Bb", "Ab"],
       "B":  ["C#",  "D#",  "E",  "F#", "G#m", "D#m", "C#m", "B",  "A"]
     };
-    const buttonOrder = ["8", "9", "u", "i", "o", "l", "k", "j", "n"];
+    // Update the buttonOrder so each Roman box matches the number key
+    const buttonOrder = ["7", "8", "4", "5", "6", "3", "2", "1", "9"];
+    // Corresponds to:
+    // 7 - V/V, 8 - V/vi, 4 - IV, 5 - V, 6 - vi, 3 - iii, 2 - ii, 1 - I, 9 - IV/IV
 
     const harmonics = 20;
     const real = new Float32Array(harmonics);
@@ -498,20 +501,20 @@
       noteButtonRefs[btn.key] = div;
     });
 
-    // --- KEYBOARD BINDINGS: Reactivated ---
+    // --- KEYBOARD BINDINGS: Updated to number keys 1-9 for each box ---
     // Map physical keyboard keys to chord keys
-    // (e.g. '8' key for V/V, '9' for V/vi, 'u', 'i', 'o', 'l', 'k', 'j', 'n')
+    // (e.g. '1' for I, '2' for ii, ..., '9' for IV/IV)
     // Modifier: Shift = sharp, Alt or Control = flat (standard for web)
     const keyMap = {
-      "8": "8",
-      "9": "9",
-      "u": "u",
-      "i": "i",
-      "o": "o",
-      "l": "l",
-      "k": "k",
-      "j": "j",
-      "n": "n"
+      "1": "1", // I
+      "2": "2", // ii
+      "3": "3", // iii
+      "4": "4", // IV
+      "5": "5", // V
+      "6": "6", // vi
+      "7": "7", // V/V
+      "8": "8", // V/vi
+      "9": "9"  // IV/IV
     };
     // Track which keys are held so we don't retrigger
     const keyHeldDown = {};
